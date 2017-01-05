@@ -57,16 +57,7 @@ module.exports = {
             // }
         ]
     },
-    // resolve: {
-    //     root: 'modules',
-    //     alias: {
-    //         'mod/slider': '/path/mods/mod/slider/0.0.5',
-    //         'mod/footer': '/path/mods/mod/footer/0.0.2',
-    //         'mod/slider/0.0.3': '/path/mods/mod/slider/0.0.3',
-    //         'mod/header': '/path/mods/mod/header/0.0.1',
-    //         'mod/slider/0.0.1': '/path/mods/mod/slider/0.0.1'
-    //     }
-    // },
+
     devServer: {
         historyApiFallback: true,
         quiet: false, //控制台中输出打包的信息
@@ -79,7 +70,7 @@ module.exports = {
     },
     // 配置 plugin
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
+        // new webpack.HotModuleReplacementPlugin(),
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: 'vendors',
         //     filename: 'common.bundle.js',
@@ -95,7 +86,7 @@ module.exports = {
         new ExtractTextPlugin('style.css'),
         new CopyWebpackPlugin([{
             from: './images',
-            to: 'images/'
+            to: 'images'
         }])
     ],
     // devtool: 'source-map',
