@@ -1,0 +1,10 @@
+.div {
+    background: #333;
+    color: #fff;
+}
+
+.img {
+    height: 500px;
+    width: 500px;
+    background: url('../images/001.jpg') no-repeat;
+}

@@ -1,0 +1,10 @@
+.div {
+    background: #333;
+    color: #fff;
+}
+
+.img {
+    height: 500px;
+    width: 500px;
+    background: url(http://localhost:8088/distb2245b10975c09aab410194fcf7aba74.jpg) no-repeat;
+}
