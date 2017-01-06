@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var UglifyJsPlugin = require('uglify-js-plugin'); //开启代码压缩
 
 var ROOT_PATH = path.resolve(__dirname);
 var SRC_PATH = path.resolve(ROOT_PATH, 'src');
@@ -16,17 +17,20 @@ module.exports = {
     entry: {
         // index: [path.resolve(SRC_PATH, 'index.js')],
         index: ['./src/index.js'],
+        first: ['./src/first.jsx'],
         // login: [path.resolve(SRC_PATH, 'login.js')],
         // login: ['./src/login.js'],
-        // vendors: ['jquery', 'moment'] //需要打包的的第三方插件
+        // vendors: ['jquery', 'react', 'react-dom'] //需要打包的的第三方插件
     },
     output: {
         path: BUILD_PATH,
         filename: "[name].js", //name对应entry中的键名
         publicPath: 'http://localhost:8088/dist' //运行目录
     },
+    // 开启 dev source map
+    // devtool: 'eval-source-map',
     module: {
-        loaders: [ // 把之前的style&css&less loader改为
+        loaders: [ // 把style&css&less loader改为
             {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
@@ -43,18 +47,16 @@ module.exports = {
                 loader: 'url?limit=4000',
                 exclude: /^node_modules$/
             },
-            // {
-            //     test: /\.js$/,
-            //     exclude: /node_modules/,
-            //     loader: ['babel-loader'],
-            //     query: {
-            //         'presets': ['es2015'],
-            //         'plugins': [
-            //             'transform-es3-property-literals',
-            //             'transform-es3-member-expression-literals'
-            //         ]
-            //     }
-            // }
+            {
+                test: /\.js$/,
+                loader: 'babel',
+                exclude: /^node_modules$/
+            },
+            {
+                test: /\.jsx?$/,
+                loader: 'babel',
+                exclude: /^node_modules$/
+            }
         ]
     },
 
@@ -70,25 +72,34 @@ module.exports = {
     },
     // 配置 plugin
     plugins: [
-        // new webpack.HotModuleReplacementPlugin(),
+
+        // //代码压缩
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {
+        //         warnings: false
+        //     }
+        // }),
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: 'vendors',
-        //     filename: 'common.bundle.js',
-        //     minChunks: Infinity
+        //     filename: 'vendors.js',
+        //     minChunks: 2
         // }),
         // 把jquery作为全局变量插入到所有的代码中
         // 然后就可以直接在页面中使用jQuery了
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery'
-        }),
+        // new webpack.ProvidePlugin({
+        //     $: 'jquery',
+        //     jQuery: 'jquery',
+        //     'window.jQuery': 'jquery'
+        // }),
         new ExtractTextPlugin('style.css'),
         new CopyWebpackPlugin([{
             from: './images',
             to: 'images'
-        }])
+        }]),
+
     ],
-    // devtool: 'source-map',
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    }
 
 }
