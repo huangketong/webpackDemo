@@ -1,0 +1,16 @@
+* {
+    font-family: "Microsoft YaHei";
+}
+
+.commentList {
+    background: #ccc;
+}
+
+.commentForm {
+    color: #fff;
+    background: yellowgreen;
+}
+
+.dataList {
+    background: green;
+}

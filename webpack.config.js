@@ -10,6 +10,7 @@ var SRC_PATH = path.resolve(ROOT_PATH, 'src');
 
 // var MODULES_PATH = path.join(ROOT_PATH, './node_modules'); // node包目录
 var BUILD_PATH = path.resolve(ROOT_PATH, 'dist'); // 最后输出放置公共资源的目录
+// var DLL_PATH = path.resolve(ROOT_PATH, 'dll');
 
 // var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 
@@ -20,8 +21,9 @@ module.exports = {
         first: ['./src/first.jsx'],
         // login: [path.resolve(SRC_PATH, 'login.js')],
         // login: ['./src/login.js'],
-        // vendors: ['jquery', 'react', 'react-dom'] //需要打包的的第三方插件
+        vendor: ['jquery', 'react', 'react-dom'] //需要打包的的第三方插件
     },
+
     output: {
         path: BUILD_PATH,
         filename: "[name].js", //name对应entry中的键名
@@ -72,18 +74,22 @@ module.exports = {
     },
     // 配置 plugin
     plugins: [
-
+        // new webpack.HotModuleReplacementPlugin(),
+        // new webpack.DllPlugin({
+        //     path: '[name]-mainfest.json',
+        //     name: '[name]_dll'
+        // }),
         // //代码压缩
         // new webpack.optimize.UglifyJsPlugin({
         //     compress: {
         //         warnings: false
         //     }
         // }),
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     name: 'vendors',
-        //     filename: 'vendors.js',
-        //     minChunks: 2
-        // }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            filename: 'vendor.js',
+            minChunks: 2
+        }),
         // 把jquery作为全局变量插入到所有的代码中
         // 然后就可以直接在页面中使用jQuery了
         // new webpack.ProvidePlugin({
@@ -91,7 +97,7 @@ module.exports = {
         //     jQuery: 'jquery',
         //     'window.jQuery': 'jquery'
         // }),
-        new ExtractTextPlugin('style.css'),
+        new ExtractTextPlugin('[name].css'),
         new CopyWebpackPlugin([{
             from: './images',
             to: 'images'
@@ -100,6 +106,7 @@ module.exports = {
     ],
     resolve: {
         extensions: ['', '.js', '.jsx']
-    }
+    },
+
 
 }
