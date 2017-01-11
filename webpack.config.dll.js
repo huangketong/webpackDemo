@@ -28,5 +28,3 @@ module.exports = {
         }),
     ]
 }
-
-//  "dll": "webpack --progress --colors --config ./webpack.config.dll.js"
