@@ -3,21 +3,13 @@ webpackJsonp([0],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(1);
-
-
-/***/ },
-
-/***/ 1:
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(33);
+	var _reactDom = __webpack_require__(32);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -26,7 +18,7 @@ webpackJsonp([0],{
 	// const React = require('react'),
 	// ReactDOM =  require('react-dom');
 
-	__webpack_require__(179);
+	__webpack_require__(178);
 	// const Remarkable = require('remarkable');
 
 	var data = [{ id: 1, author: "huangketong", text: "This is one comment" }, { id: 2, author: "hkt", text: "This is *another* comment" }];
@@ -163,7 +155,7 @@ webpackJsonp([0],{
 
 /***/ },
 
-/***/ 179:
+/***/ 178:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

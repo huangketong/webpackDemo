@@ -3,21 +3,13 @@ webpackJsonp([1],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(183);
-
-
-/***/ },
-
-/***/ 183:
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 
-	var login = __webpack_require__(184);
+	var login = __webpack_require__(182);
 	// 使用webpack.ProvidePlugin插件后，每个js 文件中就不用引用jQuery了
-	var $ = __webpack_require__(185);
+	var $ = __webpack_require__(183);
 
-	__webpack_require__(187);
+	__webpack_require__(185);
 
 	$('.userName').html(login.sayName());
 
@@ -30,7 +22,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 184:
+/***/ 182:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -44,7 +36,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 187:
+/***/ 185:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

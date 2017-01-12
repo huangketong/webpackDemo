@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+
 var WebpackDevServer = require('webpack-dev-server');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -14,15 +15,17 @@ var BUILD_PATH = path.resolve(ROOT_PATH, 'dist'); // 最后输出放置公共资
 
 // var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 
+// 获取打包任务入口文件
+var entryUrl = require('./entrySrc.js');
+
 module.exports = {
-    entry: {
-        // index: [path.resolve(SRC_PATH, 'index.js')],
-        index: ['./src/index.js'],
-        first: ['./src/first.jsx'],
-        // login: [path.resolve(SRC_PATH, 'login.js')],
-        // login: ['./src/login.js'],
-        vendor: ['jquery', 'react', 'react-dom'] //需要打包的的第三方插件
-    },
+    // entry: {
+    //     // index: [path.resolve(SRC_PATH, 'index.js')],
+    //     // index: ['./src/js/index/index.js'],
+    //     // first: ['./src/js/first/first.jsx'],
+    //     vendor: ['jquery', 'react', 'react-dom'] //需要打包的的第三方插件
+    // },
+    entry: entryUrl,
 
     output: {
         path: BUILD_PATH,
@@ -105,6 +108,10 @@ module.exports = {
 
     ],
     resolve: {
+        alias: {
+            '{css}': ROOT_PATH + '/src/css',
+            '{refer}': ROOT_PATH + '/src/refer',
+        },
         extensions: ['', '.js', '.jsx']
     },
 
