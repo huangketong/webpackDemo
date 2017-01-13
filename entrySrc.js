@@ -15,17 +15,18 @@ function getEntry() {
     // console.log(dirSrc);
 
     dirSrc.forEach(function(name) {
-        let start = name.indexOf('src/js/') + 7;
+        let start = name.indexOf('src/') + 4;
         let end = name.lastIndexOf('.');
         //let end = name.length - 3;
 
-        let n = name.slice(start, end); //index/index || first/first
+        let n = name.slice(start, end); //js/index/index
 
-        n = n.slice(n.lastIndexOf('/') + 1, n.length);
+        // n = n.slice(n.lastIndexOf('/') + 1, n.length);
 
-        entry[n] = name;
+        entry[n] = name; //'js/index/index': './src/js/index/index.js'
     });
     entry.vendor = ['jquery', 'react', 'react-dom'];
+    // console.log(entry);
     return entry;
 
 }
