@@ -36,20 +36,22 @@ var CommentBox = React.createClass({
 
 
 
-// class CommentBox extends React.Compent{
-//     getInitialState : function(){
-//         return{data:[]};
-//     },
-//     render: function(){
-//         return(
-//             <div className="commentBox">
-//                 <h1>Comments</h1>
-//                 <CommentList data={this.props.data} />
-//                 <CommentForm />
-//             </div>
-//         );
-//     }
-// }
+ //class CommentBox extends React.Component{
+ //    constructor(){
+ //       super();
+ //        this.state = [1,2,4];
+ //    }
+ //
+ //    render(){
+ //        return(
+ //            <div className="commentBox">
+ //                <h1>Comments</h1>
+ //                <CommentList data={this.props.data} />
+ //                <CommentForm />
+ //            </div>
+ //        );
+ //    }
+ //}
 
 
 ReactDom.render( <CommentBox url="/api/comments"/> , document.getElementById('root'));

@@ -1,0 +1,47 @@
+*{
+    font-family: "Microsoft Yahei";
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+html{
+    min-width: 1190px;
+}
+ul, li {
+    list-style: none;
+}
+a, a:link, a:active, a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+.nav{
+    width: 1190px;
+    margin: 0 auto;
+}
+.navlist{
+    overflow: hidden;
+}
+.navlist li{
+    float: left;
+}
+.navlist li a{
+    display: block;
+    color: #48f;
+    font-size: 20px;
+    padding: 20px;
+    border-bottom: 2px solid transparent;
+}
+.navlist li a:hover,
+.navlist li a.active{
+    border-bottom: 2px solid red;
+}
+.banner{
+    width: 1920px;
+    /*height: 200px;*/
+    background: url(http://localhost:8088/dist3f558550945337db532342c3cf518300.jpg) no-repeat;
+}
+.content{
+    margin: 0 auto;
+}
