@@ -33,7 +33,7 @@ module.exports = {
         publicPath: 'http://localhost:8088/dist' //运行目录
     },
     // 开启 dev source map
-    // devtool: 'eval-source-map',
+    devtool: 'eval-source-map',
     module: {
         loaders: [ // 把style&css&less loader改为
             {
@@ -42,6 +42,11 @@ module.exports = {
                 exclude: /^node_modules$/
 
             },
+             {
+                 test: /\.scss$/,
+                 loader: ExtractTextPlugin.extract("style", 'css!sass'),
+                 exclude: /^node_modules$/
+             },
             {
                 test: /\.less$/,
                 loader: ExtractTextPlugin.extract('style', 'css!less'),

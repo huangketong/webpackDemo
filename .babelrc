@@ -1,3 +1,10 @@
 {
-    "presets": ["es2015", "react"]
+    "presets": ["es2015", "react"],
+    "plugins": ["transform-object-rest-spread"],
+    // 开发的时候启用 HMR 和 Catch Error
+    "env": {
+        "development": {
+            "presets": ["react-hmre"]
+        }
+    }
 }
