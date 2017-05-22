@@ -1,6 +1,6 @@
 /****
     ItemShowLayer
-    ½«Markdown¸ñÊ½×ª»¯ÎªHTMLÎÄµµ¸ñÊ½
+    
  *****/
 import './style.scss';
 import marked from 'marked';
@@ -18,7 +18,7 @@ function ItemShowLayer({ item, onEdit, onDelete }){
     if(!item || !item.id){
         return(
             <div className="col-md-8 item-show-layer-component">
-                <div className="no-select">ÇëÑ¡Ôñ×ó²àÁĞ±íÀïÃæµÄÎÄÕÂ</div>
+                <div className="no-select">è¯·é€‰æ‹©å·¦ä¾§åˆ—è¡¨é‡Œé¢çš„æ–‡ç« </div>
             </div>
         );
     }
@@ -28,8 +28,8 @@ function ItemShowLayer({ item, onEdit, onDelete }){
     return(
         <div className="col-md-8 item-show-layer-component">
             <div className="control-area">
-                <button onClick={() => onEdit(item.id)} className="btn btn-primary">±à¼­</button>
-                <button onClick={() => onDelete(item.id)} className="btn btn-danger">É¾³ı</button>
+                <button onClick={() => onEdit(item.id)} className="btn btn-primary">ç¼–è¾‘</button>
+                <button onClick={() => onDelete(item.id)} className="btn btn-danger">åˆ é™¤</button>
             </div>
             <h2>{item.title}</h2>
             <div className="item-text">

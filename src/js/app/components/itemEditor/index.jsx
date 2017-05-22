@@ -17,7 +17,7 @@ class ItemEditor extends React.Component{
                 content: ''
             }
 
-        let saveText = item.id ? '±£¥Ê' : '¥¥Ω®';
+        let saveText = item.id ? '‰øùÂ≠ò' : 'ÂàõÂª∫';
         let save = () => {
             onSave({
                 ...item,
@@ -30,11 +30,11 @@ class ItemEditor extends React.Component{
             <div className="col-md-8 item-editor-component">
                 <div className="control-area">
                     <button onClick={save} className="btn btn-success">{saveText}</button>
-                    <button onClick={onCancel} className="btn secondary">»°œ˚</button>
+                    <button onClick={onCancel} className="btn secondary">ÂèñÊ∂à</button>
                 </div>
                 <div className="edit-area">
-                    <input ref="title" placeholder="«ÎÃÓ–¥±ÍÃ‚" defaultValue={item.title} />
-                    <textarea ref="content" placeholder="«ÎÃÓ–¥ƒ⁄»›" defaultValue={item.content} />
+                    <input ref="title" placeholder="ËØ∑Â°´ÂÜôÊ†áÈ¢ò" defaultValue={item.title} />
+                    <textarea ref="content" placeholder="ËØ∑Â°´ÂÜôÂÜÖÂÆπ" defaultValue={item.content} />
                 </div>
             </div>
         );

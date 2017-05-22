@@ -12,7 +12,7 @@ const propTypes = {
 
 function List({ item, onSelect }){
 
-    /*循环插入子组件*/
+
     const itemContent = items.map(
         item => (
             <ListItem item={item}

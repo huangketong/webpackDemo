@@ -40,9 +40,9 @@ class App extends React.Component{
     }
 
     saveItem(item){
-        let items =this.state,items;
+        let items =this.state.items;
 
-        /*新建一个item*/
+        /*鏂板缓item*/
         if(!item.id){
             items = [...items,{
                 ...items,
@@ -50,7 +50,7 @@ class App extends React.Component{
                 time: new Date().getTime(),
             }];
 
-        /*存在的item*/
+        /*宸茬粡瀛樺湪鐨刬tem*/
         }else{
             items = items.map(
                 exist => (
